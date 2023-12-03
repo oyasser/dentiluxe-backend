@@ -139,10 +139,10 @@ class SalesOrderService extends Service
     /**
      * @param string $code
      */
-   public function applyPromoCode(string $code)
-   {
-       $this->promoCodeService->apply($code, $this->salesOrder);
-   }
+    public function applyPromoCode(string $code)
+    {
+        $this->promoCodeService->apply($code, $this->salesOrder);
+    }
 
     /**
      * @param string $orderNumber
