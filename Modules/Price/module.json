@@ -1,0 +1,13 @@
+{
+    "name": "Price",
+    "alias": "price",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Price\\Providers\\PriceServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

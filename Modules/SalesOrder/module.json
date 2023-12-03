@@ -1,0 +1,13 @@
+{
+    "name": "SalesOrder",
+    "alias": "salesorder",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\SalesOrder\\Providers\\SalesOrderServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

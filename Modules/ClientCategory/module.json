@@ -1,0 +1,13 @@
+{
+    "name": "ClientCategory",
+    "alias": "clientcategory",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\ClientCategory\\Providers\\ClientCategoryServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
