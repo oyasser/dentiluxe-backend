@@ -26,7 +26,6 @@ class TagPermissionsSeeder extends Seeder
             'group' => 'tags',
             'guard_name' => 'admins'
         ]);
-
     }
 
     public function createPermission()
@@ -45,7 +44,5 @@ class TagPermissionsSeeder extends Seeder
             'group' => 'tags',
             'guard_name' => 'admins'
         ]);
-
-
     }
 }

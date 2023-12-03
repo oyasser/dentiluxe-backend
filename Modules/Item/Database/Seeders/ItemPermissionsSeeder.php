@@ -26,7 +26,6 @@ class ItemPermissionsSeeder extends Seeder
             'group' => 'Items',
             'guard_name' => 'admins'
         ]);
-
     }
 
     public function createPermission()
@@ -45,7 +44,5 @@ class ItemPermissionsSeeder extends Seeder
                 'group' => 'Items',
                 'guard_name' => 'admins'
             ]);
-
-
     }
 }

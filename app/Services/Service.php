@@ -2,10 +2,9 @@
 
 namespace App\Services;
 
-
-use App\Repositories\Contracts\BaseRepository;
-use App\Services\Contracts\BaseService;
 use Exception;
+use App\Services\Contracts\BaseService;
+use App\Repositories\Contracts\BaseRepository;
 
 abstract class Service implements BaseService
 {

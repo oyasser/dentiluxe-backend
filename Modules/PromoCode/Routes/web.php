@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('promocode')->group(function() {
+Route::prefix('promocode')->group(function () {
     Route::get('/', 'PromoCodeController@index');
 });

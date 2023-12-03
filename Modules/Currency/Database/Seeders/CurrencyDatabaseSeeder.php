@@ -24,6 +24,7 @@ class CurrencyDatabaseSeeder extends Seeder
                 'rate' => 1,
                 'is_default' => true,
                 'status' => true
-            ]);
+            ]
+        );
     }
 }

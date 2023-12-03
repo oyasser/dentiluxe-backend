@@ -31,4 +31,3 @@ class ClientCategoryFactory extends Factory
         ];
     }
 }
-

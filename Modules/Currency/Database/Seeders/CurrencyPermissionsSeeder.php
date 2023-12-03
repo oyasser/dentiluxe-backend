@@ -26,7 +26,6 @@ class CurrencyPermissionsSeeder extends Seeder
             'group' => 'Currencies',
             'guard_name' => 'admins'
         ]);
-
     }
 
     public function createPermission()
@@ -45,7 +44,5 @@ class CurrencyPermissionsSeeder extends Seeder
                 'group' => 'Currencies',
                 'guard_name' => 'admins'
             ]);
-
-
     }
 }

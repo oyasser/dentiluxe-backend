@@ -2,10 +2,10 @@
 
 namespace App\Exceptions;
 
-use App\Traits\ResponseBuilder;
 use Exception;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use App\Traits\ResponseBuilder;
+use Illuminate\Http\JsonResponse;
 
 class CartException extends Exception
 {

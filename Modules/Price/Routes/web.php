@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('price')->group(function() {
+Route::prefix('price')->group(function () {
     Route::get('/', 'PriceController@index');
 });

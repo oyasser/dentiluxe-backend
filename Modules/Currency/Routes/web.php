@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('currency')->group(function() {
+Route::prefix('currency')->group(function () {
     Route::get('/', 'CurrencyController@index');
 });

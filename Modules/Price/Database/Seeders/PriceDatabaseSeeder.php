@@ -25,7 +25,8 @@ class PriceDatabaseSeeder extends Seeder
                 'slug_ar' => 'سعر-المخزن',
                 'status' => true,
                 'is_default' => false,
-            ]);
+            ]
+        );
 
         Price::firstOrCreate(
             ['slug_en' => 'sales-price'],
@@ -35,7 +36,8 @@ class PriceDatabaseSeeder extends Seeder
                 'slug_ar' => 'سعر-البيع',
                 'status' => true,
                 'is_default' => true,
-            ]);
+            ]
+        );
 
         Price::factory()->create();
     }

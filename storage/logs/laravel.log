@@ -1,0 +1,10 @@
+[2023-12-03 10:11:55] local.ERROR: There are no commands defined in the "l5-swagger" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"l5-swagger\" namespace. at /var/www/html/dentiluxe-backend/vendor/symfony/console/Application.php:622)
+[stacktrace]
+#0 /var/www/html/dentiluxe-backend/vendor/symfony/console/Application.php(673): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /var/www/html/dentiluxe-backend/vendor/symfony/console/Application.php(259): Symfony\\Component\\Console\\Application->find()
+#2 /var/www/html/dentiluxe-backend/vendor/symfony/console/Application.php(171): Symfony\\Component\\Console\\Application->doRun()
+#3 /var/www/html/dentiluxe-backend/vendor/laravel/framework/src/Illuminate/Console/Application.php(102): Symfony\\Component\\Console\\Application->run()
+#4 /var/www/html/dentiluxe-backend/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(129): Illuminate\\Console\\Application->run()
+#5 /var/www/html/dentiluxe-backend/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#6 {main}
+"} 

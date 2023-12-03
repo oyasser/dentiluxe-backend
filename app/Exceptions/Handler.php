@@ -2,24 +2,23 @@
 
 namespace App\Exceptions;
 
-use App\Traits\ResponseBuilder;
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Http\Exceptions\PostTooLargeException;
-use Illuminate\Http\Request;
-use Modules\PromoCode\Exceptions\PromocodeAlreadyUsedByUserException;
-use Modules\PromoCode\Exceptions\PromocodeBoundToOtherUserException;
-use Modules\PromoCode\Exceptions\PromocodeDoesNotExistException;
-use Modules\PromoCode\Exceptions\PromocodeExpiredException;
-use Modules\PromoCode\Exceptions\PromocodeIsLessThanMinimum;
-use Modules\PromoCode\Exceptions\PromocodeIsLessThanMinPrice;
-use Modules\PromoCode\Exceptions\PromocodeIsLessThanMinQty;
-use Modules\PromoCode\Exceptions\PromocodeNoUsagesLeftException;
-use Psr\Log\LogLevel;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
+use Psr\Log\LogLevel;
+use Illuminate\Http\Request;
+use App\Traits\ResponseBuilder;
+use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Http\Exceptions\PostTooLargeException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Modules\PromoCode\Exceptions\PromocodeExpiredException;
+use Modules\PromoCode\Exceptions\PromocodeIsLessThanMinQty;
+use Modules\PromoCode\Exceptions\PromocodeIsLessThanMinPrice;
+use Modules\PromoCode\Exceptions\PromocodeDoesNotExistException;
+use Modules\PromoCode\Exceptions\PromocodeNoUsagesLeftException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Modules\PromoCode\Exceptions\PromocodeBoundToOtherUserException;
+use Modules\PromoCode\Exceptions\PromocodeAlreadyUsedByUserException;
 
 class Handler extends ExceptionHandler
 {
@@ -31,7 +30,7 @@ class Handler extends ExceptionHandler
      * @var array<class-string<Throwable>, LogLevel::*>
      */
     protected $levels = [
-        //
+
     ];
 
     /**
@@ -40,7 +39,7 @@ class Handler extends ExceptionHandler
      * @var array<int, class-string<Throwable>>
      */
     protected $dontReport = [
-        //
+
     ];
 
     /**
@@ -62,7 +61,6 @@ class Handler extends ExceptionHandler
     public function register()
     {
         $this->reportable(function (Throwable $e) {
-            //
         });
     }
 
@@ -78,15 +76,15 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $e): Response
     {
         return match (true) {
-            $e instanceof ModelNotFoundException => $this->returnError(404, trans('messages.exception.404')),
-            $e instanceof PostTooLargeException => $this->returnError(413, trans('messages.exception.413')),
+            $e instanceof ModelNotFoundException              => $this->returnError(404, trans('messages.exception.404')),
+            $e instanceof PostTooLargeException               => $this->returnError(413, trans('messages.exception.413')),
             $e instanceof AuthorizationException, $e instanceof HttpException && $e->getStatusCode() == '403' => $this->returnError(403, trans('messages.exception.403')),
             $e instanceof PromocodeDoesNotExistException, $e instanceof PromocodeNoUsagesLeftException, $e instanceof PromocodeBoundToOtherUserException => $this->returnError(422, trans('promocode::messages.code_invalid'), ['code' => []]),
-            $e instanceof PromocodeExpiredException => $this->returnError(422, trans('promocode::messages.code_expired'), ['code' => []]),
+            $e instanceof PromocodeExpiredException           => $this->returnError(422, trans('promocode::messages.code_expired'), ['code' => []]),
             $e instanceof PromocodeAlreadyUsedByUserException => $this->returnError(422, trans('promocode::messages.code_redeemed'), ['code' => []]),
-            $e instanceof PromocodeIsLessThanMinPrice => $this->returnError(422, trans('promocode::messages.code_less_than_min_price'), ['code' => []]),
-            $e instanceof PromocodeIsLessThanMinQty => $this->returnError(422, trans('promocode::messages.code_less_than_min_qty'), ['code' => []]),
-            default => parent::render($request, $e),
+            $e instanceof PromocodeIsLessThanMinPrice         => $this->returnError(422, trans('promocode::messages.code_less_than_min_price'), ['code' => []]),
+            $e instanceof PromocodeIsLessThanMinQty           => $this->returnError(422, trans('promocode::messages.code_less_than_min_qty'), ['code' => []]),
+            default                                           => parent::render($request, $e),
         };
     }
 }

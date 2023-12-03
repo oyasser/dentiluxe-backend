@@ -2,15 +2,15 @@
 
 namespace App\Repositories;
 
-use App\Repositories\Contracts\BaseRepository;
 use Exception;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use App\Repositories\Contracts\BaseRepository;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 abstract class Repository implements BaseRepository
 {
@@ -97,9 +97,9 @@ abstract class Repository implements BaseRepository
     protected function sortBy($options, Builder $builder): void
     {
         if (key_exists('filters', $options) && is_array($options['filters']) && count($options['filters'])) {
-            $sort = $options['filters']['sort'] ?? 'id';
-            $direction = $options['filters']['direction'] ?? 'desc';
-            $sortArray = is_array($sort) ? $sort : [$sort];
+            $sort           = $options['filters']['sort'] ?? 'id';
+            $direction      = $options['filters']['direction'] ?? 'desc';
+            $sortArray      = is_array($sort) ? $sort : [$sort];
             $directionArray = is_array($direction) ? $direction : [$direction];
 
             foreach ($sortArray as $key => $sort) {
@@ -371,7 +371,6 @@ abstract class Repository implements BaseRepository
      * @param bool $trashed
      * @return Model
      */
-
     public function findOrFail(int|string $id, array $columns = ['*'], array $options = []): Model
     {
         $query = $this->retrieveQuery($columns, $options);

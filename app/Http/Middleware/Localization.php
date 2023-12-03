@@ -18,7 +18,7 @@ class Localization
     {
         $requestLocal = strtolower($request->header('Accept-Language'));
 
-        $local = ($request->hasHeader('Accept-Language') && in_array($requestLocal,  ['ar','en'])) ?
+        $local = ($request->hasHeader('Accept-Language') && in_array($requestLocal, ['ar','en'])) ?
             $requestLocal : app()->getLocale();
 
         app()->setLocale($local);

@@ -26,7 +26,6 @@ class SliderPermissionsSeeder extends Seeder
             'group' => 'Sliders',
             'guard_name' => 'admins'
         ]);
-
     }
 
     public function createPermission()
@@ -45,7 +44,5 @@ class SliderPermissionsSeeder extends Seeder
                 'group' => 'Sliders',
                 'guard_name' => 'admins'
             ]);
-
-
     }
 }

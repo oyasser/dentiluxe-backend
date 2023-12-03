@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-trait  Paginatable
+trait Paginatable
 {
     protected int $perPageMax = 100;
 
@@ -18,6 +18,7 @@ trait  Paginatable
         if ($perPage == 0) {
             $perPage = $this->count();
         }
+
         return max(1, min($this->perPageMax, (int) $perPage));
     }
 }

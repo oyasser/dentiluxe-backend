@@ -28,8 +28,7 @@ class CurrencyFactory extends Factory
             'name_ar' => $fakerAr->unique()->name(),
             'description_en' => $this->faker->text(),
             'description_ar' => $fakerAr->text(),
-            'rate' => $this->faker->numberBetween(1,50)
+            'rate' => $this->faker->numberBetween(1, 50)
         ];
     }
 }
-

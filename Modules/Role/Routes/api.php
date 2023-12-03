@@ -16,6 +16,4 @@ use Modules\Role\Http\Controllers\RoleController;
 Route::middleware(['auth:admins'])->prefix('admin')->group(callback: function () {
 
     Route::apiResource('roles', RoleController::class)->except(['destroy']);
-
 });
-

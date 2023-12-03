@@ -26,7 +26,6 @@ class BlogPermissionsSeeder extends Seeder
             'group' => 'blogs',
             'guard_name' => 'admins'
         ]);
-
     }
 
     public function createPermission()
@@ -45,7 +44,5 @@ class BlogPermissionsSeeder extends Seeder
             'group' => 'blogs',
             'guard_name' => 'admins'
         ]);
-
-
     }
 }

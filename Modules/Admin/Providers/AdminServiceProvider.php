@@ -86,5 +86,4 @@ class AdminServiceProvider extends ServiceProvider
     {
         return [];
     }
-
 }

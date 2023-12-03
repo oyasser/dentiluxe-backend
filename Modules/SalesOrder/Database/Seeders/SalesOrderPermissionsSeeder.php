@@ -26,7 +26,6 @@ class SalesOrderPermissionsSeeder extends Seeder
             'group' => 'sales_orders',
             'guard_name' => 'admins'
         ]);
-
     }
 
     public function createPermission()
@@ -45,7 +44,5 @@ class SalesOrderPermissionsSeeder extends Seeder
             'group' => 'sales_orders',
             'guard_name' => 'admins'
         ]);
-
-
     }
 }

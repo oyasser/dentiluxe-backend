@@ -2,7 +2,6 @@
 
 namespace Modules\ClientCategory\Observers;
 
-
 use Modules\ClientCategory\Models\ClientCategory;
 
 class ClientCategoryObserver

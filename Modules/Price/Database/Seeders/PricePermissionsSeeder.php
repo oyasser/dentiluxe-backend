@@ -26,7 +26,6 @@ class PricePermissionsSeeder extends Seeder
             'group' => 'Prices',
             'guard_name' => 'admins'
         ]);
-
     }
 
     public function createPermission()
@@ -45,7 +44,5 @@ class PricePermissionsSeeder extends Seeder
                 'group' => 'Prices',
                 'guard_name' => 'admins'
             ]);
-
-
     }
 }

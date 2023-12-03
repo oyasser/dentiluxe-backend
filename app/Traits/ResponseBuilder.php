@@ -4,8 +4,8 @@ namespace App\Traits;
 
 use App\Exceptions\CartException;
 use App\Exceptions\ItemException;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
 
 trait ResponseBuilder
 {
@@ -53,6 +53,7 @@ trait ResponseBuilder
         if (empty($message)) {
             $message = trans('messages.exception.400');
         }
+
         return $this->setResponseMessage($message)
             ->setResponseData($data)
             ->error(400);
@@ -123,7 +124,7 @@ trait ResponseBuilder
     {
         return collect($data)->map(function ($item) {
             if (is_float($item)) {
-                return preg_replace('/\.00/', '', number_format((float)$item, 2, '.', ''));
+                return preg_replace('/\.00/', '', number_format((float) $item, 2, '.', ''));
             } elseif (is_array($item)) {
                 return $this->formatFloatNumbers($item);
             }
@@ -159,7 +160,7 @@ trait ResponseBuilder
     {
         $response = [
             'message' => $this->responseMessage(),
-            'data' => $this->responseData(),
+            'data'    => $this->responseData(),
         ];
 
         if (isset($this->responseData()['data'])) {

@@ -24,7 +24,7 @@ class CategoryService extends Service
         $this->itemRepository = $itemRepository;
     }
 
-    /** 
+    /**
      * @param array $filters
      * @return LengthAwarePaginator|Collection
      */

@@ -30,7 +30,6 @@ return new class () extends Migration {
                 ->on('items')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-
         });
     }
 

@@ -26,7 +26,6 @@ class PromoCodePermissionsSeeder extends Seeder
             'group' => 'promocodes',
             'guard_name' => 'admins'
         ]);
-
     }
 
     public function createPermission()
@@ -45,7 +44,5 @@ class PromoCodePermissionsSeeder extends Seeder
             'group' => 'promocodes',
             'guard_name' => 'admins'
         ]);
-
-
     }
 }

@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('favorite')->group(function() {
+Route::prefix('favorite')->group(function () {
     Route::get('/', 'FavoriteController@index');
 });

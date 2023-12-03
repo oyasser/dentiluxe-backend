@@ -2,13 +2,13 @@
 
 namespace App\Providers;
 
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Gate;
-use Laravel\Passport\AuthCode;
-use Laravel\Passport\Client;
-use Laravel\Passport\Passport;
-use Laravel\Passport\PersonalAccessClient;
 use Laravel\Passport\Token;
+use Laravel\Passport\Client;
+use Laravel\Passport\AuthCode;
+use Laravel\Passport\Passport;
+use Illuminate\Support\Facades\Gate;
+use Laravel\Passport\PersonalAccessClient;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {

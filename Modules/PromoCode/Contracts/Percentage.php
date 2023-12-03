@@ -12,6 +12,5 @@ class Percentage extends PromoCodeContract
         $discount = ($this->getTotal() * $this->promoCode->discount_value) / 100;
 
         return min($discount, $this->promoCode->maximum_discount);
-
     }
 }

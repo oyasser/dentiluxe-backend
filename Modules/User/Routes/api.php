@@ -36,7 +36,6 @@ Route::middleware(['auth:admins'])
 
         Route::get('/users', 'index');
         Route::get('/users/{user}', 'show');
-
     });
 
 Route::middleware(['auth:api'])
@@ -48,4 +47,3 @@ Route::middleware(['auth:api'])
         Route::get('orders', 'orders');
         Route::get('orders/{number}', 'order');
     });
-

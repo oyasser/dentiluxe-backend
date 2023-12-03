@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('clientcategory')->group(function() {
+Route::prefix('clientcategory')->group(function () {
     Route::get('/', 'ClientCategoryController@index');
 });

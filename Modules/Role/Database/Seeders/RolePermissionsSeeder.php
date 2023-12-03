@@ -26,7 +26,6 @@ class RolePermissionsSeeder extends Seeder
             'group' => 'Roles',
             'guard_name' => 'admins'
         ]);
-
     }
 
     public function createPermission()
@@ -45,7 +44,5 @@ class RolePermissionsSeeder extends Seeder
                 'group' => 'Roles',
                 'guard_name' => 'admins'
             ]);
-
-
     }
 }

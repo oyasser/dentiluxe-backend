@@ -26,7 +26,6 @@ class ClientCategoryPermissionsSeeder extends Seeder
             'group' => 'Client Categories',
             'guard_name' => 'admins'
         ]);
-
     }
 
     public function createPermission()
@@ -45,7 +44,5 @@ class ClientCategoryPermissionsSeeder extends Seeder
                 'group' => 'Client Categories',
                 'guard_name' => 'admins'
             ]);
-
-
     }
 }

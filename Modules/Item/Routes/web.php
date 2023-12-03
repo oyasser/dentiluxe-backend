@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('item')->group(function() {
+Route::prefix('item')->group(function () {
     Route::get('/', 'ItemController@index');
 });

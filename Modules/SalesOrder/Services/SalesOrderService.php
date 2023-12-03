@@ -2,14 +2,14 @@
 
 namespace Modules\SalesOrder\Services;
 
-use App\Services\Service;
 use Exception;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
+use App\Services\Service;
 use Illuminate\Support\Facades\DB;
-use Modules\Cart\Repositories\Contracts\CartRepository;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 use Modules\PromoCode\Services\PromoCodeService;
+use Modules\Cart\Repositories\Contracts\CartRepository;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Modules\SalesOrder\Repositories\Contracts\SalesOrderRepository;
 
 class SalesOrderService extends Service
@@ -28,10 +28,9 @@ class SalesOrderService extends Service
         SalesOrderRepository $repo,
         CartRepository       $cartRepository,
         PromoCodeService     $promoCodeService,
-    )
-    {
+    ) {
         $this->setRepo($repo);
-        $this->cartRepository = $cartRepository;
+        $this->cartRepository   = $cartRepository;
         $this->promoCodeService = $promoCodeService;
     }
 
@@ -43,7 +42,7 @@ class SalesOrderService extends Service
     {
         $options = [
             'filters' => $filters,
-            'with' => ['items'],
+            'with'    => ['items'],
         ];
 
         return $this->repo()->retrievePaginate(['*'], $options);
@@ -57,7 +56,6 @@ class SalesOrderService extends Service
     {
         try {
             return DB::transaction(function () use ($data) {
-
                 $cart = $this->getCartWithItems();
 
                 $this->salesOrder = $this->repo()->create(['user_id' => auth()->id(), 'details' => $data['details']]);
@@ -75,12 +73,12 @@ class SalesOrderService extends Service
 
                 $this->repo()->update($this->salesOrder->id, [
                     'sub_total' => $this->subTotal,
-                    'discount' => $this->discount,
-                    'total' => $this->subTotal - $this->discount,
+                    'discount'  => $this->discount,
+                    'total'     => $this->subTotal - $this->discount,
                 ]);
+
                 return true;
             });
-
         } catch (Exception $exception) {
             return false;
         }
@@ -89,13 +87,13 @@ class SalesOrderService extends Service
     /**
      * @return Model
      */
-    function getCartWithItems(): Model
+    public function getCartWithItems(): Model
     {
-        $userId = auth()->id();
+        $userId    = auth()->id();
         $sessionId = request()->header('session');
 
         $attributes = auth()->user() ? ['user_id' => $userId] : ['session_id' => $sessionId];
-        $cart = $this->cartRepository->findBy($attributes, ['*'], ['with' => ['items']]);
+        $cart       = $this->cartRepository->findBy($attributes, ['*'], ['with' => ['items']]);
 
         $this->items = $cart->items;
 
@@ -107,8 +105,8 @@ class SalesOrderService extends Service
         foreach ($this->items as $item) {
             $this->salesOrder->items()->attach($item->id, [
                 'item_id' => $item->id,
-                'qty' => $item->pivot->qty,
-                'price' => $item->salesPrice
+                'qty'     => $item->pivot->qty,
+                'price'   => $item->salesPrice,
             ]);
         }
     }
@@ -124,7 +122,7 @@ class SalesOrderService extends Service
      * @param $cart
      * @return void
      */
-    function deleteCompletedCart($cart): void
+    public function deleteCompletedCart($cart): void
     {
         $this->cartRepository->destroy($cart->id);
     }
@@ -133,7 +131,7 @@ class SalesOrderService extends Service
      * @param $code
      * @return void
      */
-    function calculateDiscount($code): void
+    public function calculateDiscount($code): void
     {
         $this->discount = $this->promoCodeService->calculateDiscount($code, $this->items);
     }
@@ -141,10 +139,10 @@ class SalesOrderService extends Service
     /**
      * @param string $code
      */
-    function applyPromoCode(string $code)
-    {
-        $this->promoCodeService->apply($code, $this->salesOrder);
-    }
+   public function applyPromoCode(string $code)
+   {
+       $this->promoCodeService->apply($code, $this->salesOrder);
+   }
 
     /**
      * @param string $orderNumber
@@ -164,5 +162,4 @@ class SalesOrderService extends Service
     {
         return $this->repo()->findOrFailBy(['order_number' => $orderNumber], ['*'], ['with' => ['items']]);
     }
-
 }

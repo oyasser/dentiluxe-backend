@@ -2,7 +2,6 @@
 
 namespace Modules\SalesOrder\Observers;
 
-
 use Illuminate\Support\Str;
 use Modules\SalesOrder\Events\OrderCreated;
 use Modules\SalesOrder\Models\SalesOrder;
@@ -17,7 +16,6 @@ class SalesOrderObserver
     public function creating(SalesOrder $salesOrder): void
     {
         $salesOrder->order_number = rand(1, 20) . Str::random(10);
-
     }
 
     /**

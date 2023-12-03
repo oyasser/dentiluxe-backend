@@ -2,10 +2,10 @@
 
 namespace App\Traits;
 
-use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
-use Illuminate\Support\Facades\Storage;
 use Modules\Image\Models\Image;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait Imageable
 {
@@ -39,7 +39,6 @@ trait Imageable
                 'image' => $image->store($folderPath, 'public'),
             ]
         );
-
     }
 
     //Update single image

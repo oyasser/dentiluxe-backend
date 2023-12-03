@@ -54,6 +54,5 @@ class FavoriteController extends Controller
         $this->service->removeFromFavorite($slug);
 
         return $this->returnSuccess();
-
     }
 }

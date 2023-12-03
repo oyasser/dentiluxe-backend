@@ -1,0 +1,8 @@
+composer dump-autoload
+
+./vendor/bin/phpstan analyse
+
+./vendor/bin/php-cs-fixer fix  app/ Modules/
+
+./vendor/bin/phpcbf --standard=PSR2 --tab-width=4  app/ Modules/
+./vendor/bin/phpcs -n --standard=PSR2 --tab-width=4 --ignore=*/Database/Migrations/* app/ Modules/

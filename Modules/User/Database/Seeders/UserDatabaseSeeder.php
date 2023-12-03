@@ -20,6 +20,5 @@ class UserDatabaseSeeder extends Seeder
         $this->call(AdminRolesAndPermissionsSeeder::class);
         $this->command->info("Admin with roles and permissions created successfully!.");
         $this->command->info("Creating dummy data....");
-
     }
 }

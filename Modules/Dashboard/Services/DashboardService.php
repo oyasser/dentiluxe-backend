@@ -39,7 +39,7 @@ class DashboardService extends Service
 
     public function orders()
     {
-        return $this->orderRepository->retrieveBy(['status' => 'COMPLETED'],['ROUND(SUM(sub_total), 0) AS sub_total', 'ROUND(SUM(discount),0) AS total_discount', 'ROUND(SUM(total),0) AS total'])->first();
+        return $this->orderRepository->retrieveBy(['status' => 'COMPLETED'], ['ROUND(SUM(sub_total), 0) AS sub_total', 'ROUND(SUM(discount),0) AS total_discount', 'ROUND(SUM(total),0) AS total'])->first();
     }
 
     public function topFiveItems(): Collection
@@ -85,7 +85,7 @@ class DashboardService extends Service
 
         ];
 
-        return $this->orderRepository->retrieveBy(['status' => 'COMPLETED'],$columns, $options);
+        return $this->orderRepository->retrieveBy(['status' => 'COMPLETED'], $columns, $options);
     }
 
     public function ordersChart(): Collection

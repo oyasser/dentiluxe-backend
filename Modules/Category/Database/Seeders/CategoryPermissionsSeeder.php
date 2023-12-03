@@ -26,7 +26,6 @@ class CategoryPermissionsSeeder extends Seeder
             'group' => 'Categories',
             'guard_name' => 'admins'
         ]);
-
     }
 
     public function createPermission()
@@ -45,7 +44,5 @@ class CategoryPermissionsSeeder extends Seeder
                 'group' => 'Categories',
                 'guard_name' => 'admins'
             ]);
-
-
     }
 }

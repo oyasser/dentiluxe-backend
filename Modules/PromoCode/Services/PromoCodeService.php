@@ -158,7 +158,6 @@ class PromoCodeService extends Service
         ]);
 
         if ($promoCode->usages != '-1') {
-
             $promoCode->decrement('usages');
         }
     }
@@ -176,5 +175,4 @@ class PromoCodeService extends Service
         }
         return $promoCode;
     }
-
 }

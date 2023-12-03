@@ -2,7 +2,6 @@
 
 namespace Modules\Admin\Database\Seeders;
 
-
 use Illuminate\Database\Seeder;
 use Modules\Admin\Models\Admin;
 use Spatie\Permission\Models\Permission;

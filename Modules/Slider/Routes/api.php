@@ -29,5 +29,4 @@ Route::controller(SliderController::class)
 
         Route::get('/', 'index');
         Route::get('/{slider}', 'show');
-
     });

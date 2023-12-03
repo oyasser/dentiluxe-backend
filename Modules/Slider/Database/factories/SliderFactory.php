@@ -31,4 +31,3 @@ class SliderFactory extends Factory
         ];
     }
 }
-

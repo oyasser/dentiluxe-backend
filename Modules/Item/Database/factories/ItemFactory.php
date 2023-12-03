@@ -35,6 +35,4 @@ class ItemFactory extends Factory
             'min_stock' => $this->faker->numberBetween(1, 10),
         ];
     }
-
 }
-

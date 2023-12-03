@@ -25,7 +25,6 @@ class FreeAddon extends PromoCodeContract
                 if ($freeItemsQty) {
                     $totalDiscount += $freeItemsQty * $item->salesPrice;
                 }
-
             }
         }
 

@@ -28,7 +28,7 @@ abstract class PromoCodeContract
         return $this->total;
     }
 
-    protected abstract function calculateDiscount();
+    abstract protected function calculateDiscount();
 
     protected function setTotal(): void
     {

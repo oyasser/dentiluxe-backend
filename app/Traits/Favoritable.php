@@ -2,11 +2,11 @@
 
 namespace App\Traits;
 
+use Modules\Favorite\Models\Favorite;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Modules\Favorite\Models\Favorite;
 
-trait  Favoritable
+trait Favoritable
 {
     /**
      * Boot the trait.
@@ -67,8 +67,7 @@ trait  Favoritable
     protected function favorited(): Attribute
     {
         return Attribute::make(
-            get: fn($value) => $this->isFavorited(),
+            get: fn ($value) => $this->isFavorited(),
         );
     }
-
 }

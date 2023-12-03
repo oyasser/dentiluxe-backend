@@ -18,7 +18,6 @@ return new class extends Migration {
             $table->string('session_id')->index()->nullable();
 
             $table->timestamps();
-
         });
     }
 
